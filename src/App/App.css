@@ -1,0 +1,28 @@
+nav {
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0.5em auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a h1 {
+  font-size: 2rem;
+}
+
+.current-stories {
+  font-size: 2.5rem;
+  margin: 1em 0;
+  text-align: center;
+}
