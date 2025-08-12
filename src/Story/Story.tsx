@@ -7,12 +7,16 @@ import { fdb } from "../App/firebase";
 import { useEffect, useState } from "react";
 
 export default function StoryDetail() {
-  const [showNext, setShowNext] = useState<boolean>(true);
   const [text, setText] = useState<string>("");
 
   const params = useParams();
 
   const episode = parseInt(params.episode ?? "0");
+  const [showNext, setShowNext] = useState<boolean>(
+    params.storyId !== undefined
+      ? (store.getState().maxEpisodes[params.storyId] ?? episode) >= episode
+      : true
+  );
 
   useEffect(() => {
     async function checkEpisode() {
@@ -52,7 +56,7 @@ export default function StoryDetail() {
 
     getText();
     checkEpisode();
-  }, [episode]);
+  }, [episode, params]);
 
   return (
     <>
